@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6C1D74C-7729-40BA-81ED-53F68A31B017}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BazePodataka.Forme</RootNamespace>
+    <AssemblyName>BazePodataka.Forme</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormeGlavna\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeGlavna\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeKafa\FrmKafaDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeKafa\FrmKafaDodaj.Designer.cs">
+      <DependentUpon>FrmKafaDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeKafa\FrmKafaPrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeKafa\FrmKafaPrikaz.Designer.cs">
+      <DependentUpon>FrmKafaPrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeKalkulacija\FrmKalkulacijaPrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeKalkulacija\FrmKalkulacijaPrikaz.Designer.cs">
+      <DependentUpon>FrmKalkulacijaPrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeKalkulacija\FrmKalkulacijaDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeKalkulacija\FrmKalkulacijaDodaj.Designer.cs">
+      <DependentUpon>FrmKalkulacijaDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeKomitent\FrmKomitentDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeKomitent\FrmKomitentDodaj.Designer.cs">
+      <DependentUpon>FrmKomitentDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeKomitent\FrmKomitentPrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeKomitent\FrmKomitentPrikaz.Designer.cs">
+      <DependentUpon>FrmKomitentPrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeOtpremnica\FrmOtpremnicaDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeOtpremnica\FrmOtpremnicaDodaj.Designer.cs">
+      <DependentUpon>FrmOtpremnicaDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeOtpremnica\FrmOtpremnicaPrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeOtpremnica\FrmOtpremnicaPrikaz.Designer.cs">
+      <DependentUpon>FrmOtpremnicaPrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeProfaktura\FrmProfakturaDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeProfaktura\FrmProfakturaDodaj.Designer.cs">
+      <DependentUpon>FrmProfakturaDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeProfaktura\FrmProfakturaPrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeProfaktura\FrmProfakturaPrikaz.Designer.cs">
+      <DependentUpon>FrmProfakturaPrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeTipKafe\FrmTipKafeDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeTipKafe\FrmTipKafeDodaj.Designer.cs">
+      <DependentUpon>FrmTipKafeDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeTipKafe\FrmTipKafePrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeTipKafe\FrmTipKafePrikaz.Designer.cs">
+      <DependentUpon>FrmTipKafePrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeTrebovanje\FrmTrebovanjeDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeTrebovanje\FrmTrebovanjeDodaj.Designer.cs">
+      <DependentUpon>FrmTrebovanjeDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeTrebovanje\FrmTrebovanjePrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeTrebovanje\FrmTrebovanjePrikaz.Designer.cs">
+      <DependentUpon>FrmTrebovanjePrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormValuta\FrmValutaDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormValuta\FrmValutaDodaj.Designer.cs">
+      <DependentUpon>FrmValutaDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormValuta\FrmValutaPrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormValuta\FrmValutaPrikaz.Designer.cs">
+      <DependentUpon>FrmValutaPrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormeGlavna\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeKafa\FrmKafaDodaj.resx">
+      <DependentUpon>FrmKafaDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeKafa\FrmKafaPrikaz.resx">
+      <DependentUpon>FrmKafaPrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeKalkulacija\FrmKalkulacijaPrikaz.resx">
+      <DependentUpon>FrmKalkulacijaPrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeKalkulacija\FrmKalkulacijaDodaj.resx">
+      <DependentUpon>FrmKalkulacijaDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeKomitent\FrmKomitentDodaj.resx">
+      <DependentUpon>FrmKomitentDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeKomitent\FrmKomitentPrikaz.resx">
+      <DependentUpon>FrmKomitentPrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeOtpremnica\FrmOtpremnicaDodaj.resx">
+      <DependentUpon>FrmOtpremnicaDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeOtpremnica\FrmOtpremnicaPrikaz.resx">
+      <DependentUpon>FrmOtpremnicaPrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeProfaktura\FrmProfakturaDodaj.resx">
+      <DependentUpon>FrmProfakturaDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeProfaktura\FrmProfakturaPrikaz.resx">
+      <DependentUpon>FrmProfakturaPrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeTipKafe\FrmTipKafeDodaj.resx">
+      <DependentUpon>FrmTipKafeDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeTipKafe\FrmTipKafePrikaz.resx">
+      <DependentUpon>FrmTipKafePrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeTrebovanje\FrmTrebovanjeDodaj.resx">
+      <DependentUpon>FrmTrebovanjeDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeTrebovanje\FrmTrebovanjePrikaz.resx">
+      <DependentUpon>FrmTrebovanjePrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValuta\FrmValutaDodaj.resx">
+      <DependentUpon>FrmValutaDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValuta\FrmValutaPrikaz.resx">
+      <DependentUpon>FrmValutaPrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BazePodataka.Kontroler\BazePodataka.Kontroler.csproj">
+      <Project>{d494e9f2-8939-4d77-88fe-d0873db7e0c6}</Project>
+      <Name>BazePodataka.Kontroler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domen\BazePodataka.Domen.csproj">
+      <Project>{31c8b3b5-3f66-4b6e-9dfc-ca5db54db79f}</Project>
+      <Name>BazePodataka.Domen</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

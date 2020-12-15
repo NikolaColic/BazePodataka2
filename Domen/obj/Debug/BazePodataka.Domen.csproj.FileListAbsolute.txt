@@ -1,0 +1,6 @@
+C:\Users\PC\source\repos\BazePodataka\Domen\bin\Debug\Domen.dll
+C:\Users\PC\source\repos\BazePodataka\Domen\bin\Debug\Domen.pdb
+C:\Users\PC\source\repos\BazePodataka\Domen\obj\Debug\BazePodataka.Domen.csprojAssemblyReference.cache
+C:\Users\PC\source\repos\BazePodataka\Domen\obj\Debug\BazePodataka.Domen.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\BazePodataka\Domen\obj\Debug\Domen.dll
+C:\Users\PC\source\repos\BazePodataka\Domen\obj\Debug\Domen.pdb

@@ -1,0 +1,9 @@
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.BrokerBaze\bin\Debug\BazePodataka.BrokerBaze.dll
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.BrokerBaze\bin\Debug\BazePodataka.BrokerBaze.pdb
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.BrokerBaze\bin\Debug\Domen.dll
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.BrokerBaze\bin\Debug\Domen.pdb
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.BrokerBaze\obj\Debug\BazePodataka.BrokerBaze.csprojAssemblyReference.cache
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.BrokerBaze\obj\Debug\BazePodataka.BrokerBaze.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.BrokerBaze\obj\Debug\BazePodataka.BrokerBaze.csproj.CopyComplete
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.BrokerBaze\obj\Debug\BazePodataka.BrokerBaze.dll
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.BrokerBaze\obj\Debug\BazePodataka.BrokerBaze.pdb

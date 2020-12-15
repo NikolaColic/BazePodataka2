@@ -1,0 +1,11 @@
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Kontroler\bin\Debug\BazePodataka.Kontroler.dll
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Kontroler\bin\Debug\BazePodataka.Kontroler.pdb
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Kontroler\bin\Debug\BazePodataka.BrokerBaze.dll
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Kontroler\bin\Debug\Domen.dll
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Kontroler\bin\Debug\BazePodataka.BrokerBaze.pdb
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Kontroler\bin\Debug\Domen.pdb
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Kontroler\obj\Debug\BazePodataka.Kontroler.csprojAssemblyReference.cache
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Kontroler\obj\Debug\BazePodataka.Kontroler.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Kontroler\obj\Debug\BazePodataka.Kontroler.csproj.CopyComplete
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Kontroler\obj\Debug\BazePodataka.Kontroler.dll
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Kontroler\obj\Debug\BazePodataka.Kontroler.pdb
