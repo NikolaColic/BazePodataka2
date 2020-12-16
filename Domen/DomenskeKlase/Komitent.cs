@@ -46,7 +46,7 @@ namespace Domen.DomenskeKlase
 
         public string Insert()
         {
-            return $"'{Email}','{NazivKomitenta}', '{OpisKomitenta}', '{Pib}', '{MaticniBroj}', '{BrojTelefona}'";
+            return $"{KomitentId},'{Email}','{NazivKomitenta}', '{OpisKomitenta}', '{Pib}', '{MaticniBroj}', '{BrojTelefona}'";
         }
 
         public string Join()

@@ -19,9 +19,9 @@ namespace BazePodataka.Forme.FormValuta
         public FrmValutaDodaj(Operacija operacija, Valuta valuta)
         {
             InitializeComponent();
+            this.valuta = valuta;
             if (operacija == Operacija.Update)
             {
-                this.valuta = valuta;
                 ButtonUpdate();
                 PopuniVrednosti(valuta);
             }
@@ -50,12 +50,36 @@ namespace BazePodataka.Forme.FormValuta
 
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            bool znak = KontrolerValuta.Instance.Update(new Valuta());
+            Valuta v = Kreiraj();
+            if (v is null) return;
+            if (KontrolerValuta.Instance.Update(v)) MessageBox.Show("Uspesno");
+            else MessageBox.Show("Neuspesno");
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            bool znak = KontrolerValuta.Instance.Insert(new Valuta());
+            Valuta v = Kreiraj();
+            if (v is null) return;
+            if (KontrolerValuta.Instance.Insert(v)) MessageBox.Show("Uspesno");
+            else MessageBox.Show("Neuspesno");
+        }
+
+        private Valuta Kreiraj()
+        {
+            try
+            {
+                Valuta v = new Valuta()
+                {
+                    ValutaId = valuta.ValutaId,
+                    NazivValute = txtNaziv.Text
+                };
+                return v;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Pogresan unos");
+                return null;
+            }
         }
     }
 }

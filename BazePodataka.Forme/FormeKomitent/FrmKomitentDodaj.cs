@@ -19,9 +19,9 @@ namespace BazePodataka.Forme.FormeKomitent
         public FrmKomitentDodaj(Operacija operacija, Komitent komitent)
         {
             InitializeComponent();
+            this.komitent = komitent;
             if (operacija == Operacija.Update)
             {
-                this.komitent = komitent;
                 ButtonUpdate();
                 PopuniVrednosti(komitent);
             }
@@ -55,12 +55,41 @@ namespace BazePodataka.Forme.FormeKomitent
 
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            bool znal = KontrolerKomitent.Instance.Update(new Komitent());
+            Komitent k = KreirajKomitenta();
+            if (k is null) return;
+            if (KontrolerKomitent.Instance.Update(k)) MessageBox.Show("Uspesno");
+            else MessageBox.Show("Neuspesno");
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            bool znal = KontrolerKomitent.Instance.Insert(new Komitent());
+            Komitent k = KreirajKomitenta();
+            if (k is null) return;
+            if (KontrolerKomitent.Instance.Insert(k)) MessageBox.Show("Uspesno");
+            else MessageBox.Show("Neuspesno");
+        }
+
+        private Komitent KreirajKomitenta()
+        {
+            try
+            {
+                Komitent k = new Komitent()
+                {
+                    KomitentId = komitent.KomitentId,
+                    BrojTelefona = txtBrojTelefona.Text,
+                    Email = txtEmail.Text,
+                    MaticniBroj = txtMaticni.Text,
+                    NazivKomitenta = txtNaziv.Text,
+                    OpisKomitenta = txtOpis.Text,
+                    Pib = txtPib.Text
+                };
+                return k;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Pogresan unos");
+                return null;
+            }
         }
     }
 }

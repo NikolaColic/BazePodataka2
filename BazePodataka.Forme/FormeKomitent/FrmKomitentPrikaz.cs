@@ -15,7 +15,7 @@ namespace BazePodataka.Forme.FormeKomitent
 {
     public partial class FrmKomitentPrikaz : Form
     {
-        List<Komitent> komitenti = new List<Komitent>();
+        BindingList<Komitent> komitenti;
         public FrmKomitentPrikaz()
         {
             InitializeComponent();
@@ -23,15 +23,17 @@ namespace BazePodataka.Forme.FormeKomitent
         }
         private void PripremiFormu()
         {
-            komitenti = KontrolerKomitent.Instance.Select(new Komitent());
-            if (komitenti is null) MessageBox.Show("Sistem ne moze da ucita listu");
-            dgvPrikaz.DataSource = komitenti;
+            List<Komitent> lista = KontrolerKomitent.Instance.Select(new Komitent());
+            komitenti = new BindingList<Komitent>(lista);
+            if (lista is null) MessageBox.Show("Sistem ne moze da ucita listu");
+            dgvPrikaz.DataSource = lista;
 
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            FrmKomitentDodaj form = new FrmKomitentDodaj(Operacija.Add, null);
+            Komitent k = new Komitent() { KomitentId = komitenti.Max((m) => m.KomitentId) + 1 };
+            FrmKomitentDodaj form = new FrmKomitentDodaj(Operacija.Add, k);
             form.ShowDialog();
         }
 
@@ -47,7 +49,13 @@ namespace BazePodataka.Forme.FormeKomitent
         {
             Komitent k = SelectKomitent();
             if (k is null) return;
-            bool znak = KontrolerKomitent.Instance.Delete(k);
+            if (KontrolerKomitent.Instance.Delete(k))
+            {
+                MessageBox.Show("Uspesno obrisano");
+                komitenti.Remove(k);
+                dgvPrikaz.DataSource = komitenti;
+            }
+            else MessageBox.Show("Neuspesno obrisano!");
         }
         private Komitent SelectKomitent()
         {
@@ -57,7 +65,7 @@ namespace BazePodataka.Forme.FormeKomitent
                 komitent = (Komitent)dgvPrikaz.SelectedRows[0].DataBoundItem;
                 return komitent;
             }
-            catch (Exception ef)
+            catch (Exception )
             {
                 MessageBox.Show("Niste selektovali");
                 return null;

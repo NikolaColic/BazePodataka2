@@ -46,7 +46,7 @@ namespace Domen.DomenskeKlase
 
         public string Insert()
         {
-            return $"{PreostaloUplata},'{DatumIzdavanja}',{UplaceniAvansi},'{Napomena}','{DatumPrometa}',{Valuta.ValutaId},'{NazivValute}'";
+            return $"{SifraOtpremnice},{PreostaloUplata},'{DatumIzdavanja}',{UplaceniAvansi},'{Napomena}','{DatumPrometa}',{Valuta.ValutaId},'{NazivValute}'";
         }
 
         public string Join()
@@ -73,7 +73,7 @@ namespace Domen.DomenskeKlase
 
         public string Where()
         {
-            return $"sifraOtpremnice = {SifraOtpremnice}";
+            return $"where sifraOtpremnice = {SifraOtpremnice}";
         }
     }
 }

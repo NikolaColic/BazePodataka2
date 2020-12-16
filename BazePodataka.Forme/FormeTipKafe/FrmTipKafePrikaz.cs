@@ -15,7 +15,7 @@ namespace BazePodataka.Forme.FormeTipKafe
 {
     public partial class FrmTipKafePrikaz : Form
     {
-        List<TipKafe> tipovi = new List<TipKafe>();
+        BindingList<TipKafe> tipovi;
         public FrmTipKafePrikaz()
         {
             InitializeComponent();
@@ -23,13 +23,15 @@ namespace BazePodataka.Forme.FormeTipKafe
         }
         private void PripremiFormu()
         {
-            tipovi = KontrolerTipKafe.Instance.Select(new TipKafe());
-            if (tipovi is null) MessageBox.Show("Sistem ne moze da ucita listu");
-            dgvPrikaz.DataSource = tipovi;
+            List<TipKafe> lista = KontrolerTipKafe.Instance.Select(new TipKafe());
+            tipovi = new BindingList<TipKafe>(lista);
+            if (lista is null) MessageBox.Show("Sistem ne moze da ucita listu");
+            dgvPrikaz.DataSource = lista;
         }
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            FrmTipKafeDodaj form = new FrmTipKafeDodaj(Operacija.Add, null);
+            TipKafe tip = new TipKafe() { TipKafeId = tipovi.Max(m => m.TipKafeId) + 1 };
+            FrmTipKafeDodaj form = new FrmTipKafeDodaj(Operacija.Add, tip);
             form.ShowDialog();
         }
 
@@ -45,7 +47,13 @@ namespace BazePodataka.Forme.FormeTipKafe
         {
             TipKafe tip = SelectTipKafe();
             if (tip is null) return;
-            bool znak = KontrolerTipKafe.Instance.Delete(tip);
+            if (KontrolerTipKafe.Instance.Delete(tip))
+            {
+                MessageBox.Show("Uspesno!");
+                tipovi.Remove(tip);
+                return;
+            }
+            MessageBox.Show("Neuspesno!");
         }
         private TipKafe SelectTipKafe()
         {
@@ -55,7 +63,7 @@ namespace BazePodataka.Forme.FormeTipKafe
                 tipkafe = (TipKafe)dgvPrikaz.SelectedRows[0].DataBoundItem;
                 return tipkafe;
             }
-            catch (Exception ef)
+            catch (Exception)
             {
                 MessageBox.Show("Niste selektovali");
                 return null;

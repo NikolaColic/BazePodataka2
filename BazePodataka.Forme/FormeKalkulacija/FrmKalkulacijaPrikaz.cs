@@ -15,7 +15,7 @@ namespace BazePodataka.Forme.FormeKalkulacija
 {
     public partial class FrmKalkulacijaPrikaz : Form
     {
-        List<Kalkulacija> listaKalkulacija = new List<Kalkulacija>();
+        BindingList<Kalkulacija> listaKalkulacija;
         public FrmKalkulacijaPrikaz()
         {
             InitializeComponent();
@@ -23,14 +23,16 @@ namespace BazePodataka.Forme.FormeKalkulacija
         }
         private void PripremiFormu()
         {
-            listaKalkulacija = KontrolerKalkulacija.Instance.Select(new Kalkulacija());
-            if (listaKalkulacija is null) MessageBox.Show("Sistem ne moze da ucita listu");
-            dgvPrikazKafa.DataSource = listaKalkulacija;
+            List<Kalkulacija> listaKalkulacija2 = KontrolerKalkulacija.Instance.Select(new Kalkulacija());
+            listaKalkulacija = new BindingList<Kalkulacija>(listaKalkulacija2);
+            if (listaKalkulacija2 is null) MessageBox.Show("Sistem ne moze da ucita listu");
+            dgvPrikazKafa.DataSource = listaKalkulacija2;
 
         }
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            FrmKalkulacijaDodaj form = new FrmKalkulacijaDodaj(Operacija.Add, null);
+            int max = listaKalkulacija.Max((k) => k.SifraKalkulacije);
+            FrmKalkulacijaDodaj form = new FrmKalkulacijaDodaj(Operacija.Add, new Kalkulacija() { SifraKalkulacije = max +1});
             form.ShowDialog();
         }
 
@@ -46,7 +48,14 @@ namespace BazePodataka.Forme.FormeKalkulacija
         {
             Kalkulacija k = SelectKalkulacija();
             if (k is null) return;
-            bool znak = KontrolerKalkulacija.Instance.Delete(k);
+            if (KontrolerKalkulacija.Instance.Delete(k))
+            {
+                MessageBox.Show("Uspesno obrisano");
+                listaKalkulacija.Remove(k);
+                dgvPrikazKafa.DataSource = listaKalkulacija;
+                dgvPrikazKafa.Refresh();
+            }
+            else MessageBox.Show("Neuspesan unos");
 
         }
         private Kalkulacija SelectKalkulacija()

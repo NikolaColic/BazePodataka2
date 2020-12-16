@@ -20,9 +20,9 @@ namespace BazePodataka.Forme.FormeProfaktura
         {
             InitializeComponent();
             PripremiFormu();
+            profaktura = profaktura2;
             if (operacija == Operacija.Update)
             {
-                profaktura = profaktura2;
                 ButtonUpdate();
                 PopuniVrednosti(profaktura2);
             }
@@ -62,12 +62,41 @@ namespace BazePodataka.Forme.FormeProfaktura
 
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            bool znak = KontrolerProfaktura.Instance.Update(new Profaktura());
+            Profaktura p = Kreiraj();
+            if (p is null) return;
+            if (KontrolerProfaktura.Instance.Update(p)) MessageBox.Show("Uspesno!");
+            else MessageBox.Show("Neuspesno!");
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            bool znak = KontrolerProfaktura.Instance.Insert(new Profaktura());
+            Profaktura p = Kreiraj();
+            if (p is null) return;
+            if (KontrolerProfaktura.Instance.Insert(p)) MessageBox.Show("Uspesno!");
+            else MessageBox.Show("Neuspesno!");
+        }
+
+        private Profaktura Kreiraj()
+        {
+            try
+            {
+                Profaktura p = new Profaktura()
+                {
+                    BrojFakture = profaktura.BrojFakture,
+                    Datum = Convert.ToDateTime(txtDatum.Text),
+                    Depozit = Convert.ToDouble(txtDepozit.Text),
+                    StopaPoreza = Convert.ToDouble(txtStopaPdv.Text),
+                    Opis = txtOpis.Text,
+                    Komitent = (Komitent)cmbKomitent.SelectedItem,
+                    Trebovanje = (Trebovanje)cmbTrebovanje.SelectedItem
+                };
+                return p;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Pogresan unos");
+                return null;
+            }
         }
     }
 }

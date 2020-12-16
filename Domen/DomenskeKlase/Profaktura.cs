@@ -46,7 +46,7 @@ namespace Domen.DomenskeKlase
 
         public string Insert()
         {
-            return $"'{Depozit},{StopaPoreza}','{Opis}','{Datum}',{Trebovanje.TrebovanjeId},{Komitent.KomitentId}";
+            return $"{BrojFakture},'{Depozit},{StopaPoreza}','{Opis}','{Datum}',{Trebovanje.TrebovanjeId},{Komitent.KomitentId}";
         }
 
         public string Join()
@@ -73,7 +73,7 @@ namespace Domen.DomenskeKlase
 
         public string Where()
         {
-            return $"brojFakture = {BrojFakture}";
+            return $"where brojFakture = {BrojFakture}";
         }
     }
 }

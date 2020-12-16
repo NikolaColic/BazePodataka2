@@ -36,6 +36,7 @@ namespace BazePodataka.BrokerBaze
             catch(Exception e)
             {
                 transaction.Rollback();
+                Console.WriteLine(e.Message);
                 return false;
             }
             finally
@@ -60,6 +61,7 @@ namespace BazePodataka.BrokerBaze
             catch (Exception e)
             {
                 transaction.Rollback();
+                Console.WriteLine(e.Message);
                 return false;
             }
             finally
@@ -88,7 +90,7 @@ namespace BazePodataka.BrokerBaze
             }
             catch (Exception e)
             {
-                
+                Console.WriteLine(e.Message);
                 return null;
             }
             finally
@@ -112,6 +114,7 @@ namespace BazePodataka.BrokerBaze
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 transaction.Rollback();
                 return false;
             }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,9 @@ namespace BazePodataka.Forme.FormeKalkulacija
         public FrmKalkulacijaDodaj(Operacija operacija, Kalkulacija kalkulacija)
         {
             InitializeComponent();
+            this.kalkulacija = kalkulacija;
             if (operacija == Operacija.Update)
             {
-                this.kalkulacija = kalkulacija;
                 ButtonUpdate();
                 PopuniVrednosti(kalkulacija);
             }
@@ -56,13 +57,45 @@ namespace BazePodataka.Forme.FormeKalkulacija
 
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            bool znal = KontrolerKalkulacija.Instance.Update(new Kalkulacija());
+            Kalkulacija k = KreirajKalkulaciju();
+            if (k is null) return;
+            if (KontrolerKalkulacija.Instance.Update(k)) MessageBox.Show("Uspesna izmena");
+            else MessageBox.Show("Neuspesna izmena");
 
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            bool znal = KontrolerKalkulacija.Instance.Insert(new Kalkulacija());
+            Kalkulacija k = KreirajKalkulaciju();
+            if (k is null) return;
+            if (KontrolerKalkulacija.Instance.Insert(k)) MessageBox.Show("Uspesan unos");
+            else MessageBox.Show("Neuspesan unos");
+        }
+
+        private Kalkulacija KreirajKalkulaciju()
+        {
+            
+            try
+            {
+                DateTime datum = Convert.ToDateTime(txtDatum.Text.Trim());
+                Kalkulacija k = new Kalkulacija()
+                {
+                    SifraKalkulacije = kalkulacija.SifraKalkulacije,
+                    Datum = Convert.ToDateTime(txtDatum.Text.Trim()),
+                    Kolicina = Convert.ToDouble(txtKolicina.Text.Trim()),
+                    OktupnaCena = Convert.ToDouble(txtOtkupnaCena.Text.Trim()),
+                    ProdajnaCena = Convert.ToDouble(txtProdajna.Text.Trim()),
+                    StopaRabata = Convert.ToDouble(txtStopaRabata.Text.Trim()),
+                    StopaRUC = Convert.ToDouble(txtStopaRUC.Text.Trim()),
+                    ZavisniTrosak = Convert.ToDouble(txtZavisniTrosak.Text.Trim())
+                };
+                return k;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Pogresan unos!");
+                return null;
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace BazePodataka.Forme.FormeOtpremnica
 {
     public partial class FrmOtpremnicaPrikaz : Form
     {
-        List<Otpremnica> otpremnice = new List<Otpremnica>();
+        BindingList<Otpremnica> otpremnice;
         public FrmOtpremnicaPrikaz()
         {
             InitializeComponent();
@@ -24,9 +24,10 @@ namespace BazePodataka.Forme.FormeOtpremnica
 
         private void PripremiFormu()
         {
-            otpremnice = KontrolerOtpremnica.Instance.Select(new Otpremnica());
-            if (otpremnice is null) MessageBox.Show("Sistem ne moze da ucita listu");
-            dgvPrikaz.DataSource = otpremnice;
+            List<Otpremnica> lista = KontrolerOtpremnica.Instance.Select(new Otpremnica());
+            otpremnice = new BindingList<Otpremnica>(lista);
+            if (lista is null) MessageBox.Show("Sistem ne moze da ucita listu");
+            dgvPrikaz.DataSource = lista;
 
         }
         private void label1_Click(object sender, EventArgs e)
@@ -38,7 +39,13 @@ namespace BazePodataka.Forme.FormeOtpremnica
         {
             Otpremnica o = SelectOtpremnica();
             if (o is null) return;
-            bool znak = KontrolerOtpremnica.Instance.Delete(o);
+            if (KontrolerOtpremnica.Instance.Delete(o))
+            {
+                MessageBox.Show("Uspesno obrisano!");
+                otpremnice.Remove(o);
+                return;
+            }
+            MessageBox.Show("Neuspesno!");
         }
 
         private void btnIzmeni_Click(object sender, EventArgs e)
@@ -51,7 +58,8 @@ namespace BazePodataka.Forme.FormeOtpremnica
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            FrmOtpremnicaDodaj form = new FrmOtpremnicaDodaj(Operacija.Add, null);
+            Otpremnica o = new Otpremnica() { SifraOtpremnice = otpremnice.Max((m)=> m.SifraOtpremnice)+1};
+            FrmOtpremnicaDodaj form = new FrmOtpremnicaDodaj(Operacija.Add, o);
             form.ShowDialog();
         }
 

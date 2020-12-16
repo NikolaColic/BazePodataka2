@@ -36,7 +36,7 @@ namespace Domen.DomenskeKlase
 
         public string Insert()
         {
-            return $"'{NazivTipa}'";
+            return $"{TipKafeId},'{NazivTipa}'";
         }
 
         public string Join()

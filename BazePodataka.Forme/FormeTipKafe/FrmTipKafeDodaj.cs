@@ -19,9 +19,9 @@ namespace BazePodataka.Forme.FormeTipKafe
         public FrmTipKafeDodaj(Operacija operacija, TipKafe tip)
         {
             InitializeComponent();
+            this.tip = tip;
             if (operacija == Operacija.Update)
             {
-                this.tip = tip;
                 ButtonUpdate();
                 PopuniVrednosti(tip);
             }
@@ -50,12 +50,36 @@ namespace BazePodataka.Forme.FormeTipKafe
 
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            bool znak = KontrolerTipKafe.Instance.Update(new TipKafe());
+            TipKafe tip = Kreiraj();
+            if (tip is null) return;
+            if (KontrolerTipKafe.Instance.Update(tip)) MessageBox.Show("Uspesno!");
+            else MessageBox.Show("Neuspesno");
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            bool znak = KontrolerTipKafe.Instance.Insert(new TipKafe());
+            TipKafe tip = Kreiraj();
+            if (tip is null) return;
+            if (KontrolerTipKafe.Instance.Insert(tip)) MessageBox.Show("Uspesno!");
+            else MessageBox.Show("Neuspesno");
+        }
+
+        private TipKafe Kreiraj()
+        {
+            try
+            {
+                TipKafe t = new TipKafe()
+                {
+                    TipKafeId = tip.TipKafeId,
+                    NazivTipa = txtNaziv.Text
+                };
+                return t;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Pogresan unos!");
+                return null;
+            }
         }
     }
 }

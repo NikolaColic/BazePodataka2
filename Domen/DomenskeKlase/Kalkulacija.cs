@@ -48,7 +48,7 @@ namespace Domen.DomenskeKlase
 
         public string Insert()
         {
-            return $"{Kolicina},{OktupnaCena},{ProdajnaCena},'{Datum}', {StopaRabata},{StopaRUC},{ZavisniTrosak}";
+            return $"{SifraKalkulacije},{Kolicina},{OktupnaCena},{ProdajnaCena},'{Datum}', {StopaRabata},{StopaRUC},{ZavisniTrosak}";
         }
 
         public string Join()

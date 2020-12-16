@@ -37,7 +37,7 @@ namespace Domen.DomenskeKlase
 
         public string Insert()
         {
-            return $"'{NazivValute}'";
+            return $"{ValutaId},'{NazivValute}'";
         }
 
         public string Join()

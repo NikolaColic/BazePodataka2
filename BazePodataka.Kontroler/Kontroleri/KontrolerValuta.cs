@@ -52,7 +52,7 @@ namespace BazePodataka.Kontroler.Kontroleri
         {
             try
             {
-                var rezultat = _broker.Insert(valuta);
+                var rezultat = _broker.Delete(valuta);
                 return rezultat;
             }
             catch (Exception)

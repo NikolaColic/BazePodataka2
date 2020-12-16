@@ -15,7 +15,7 @@ namespace BazePodataka.Forme.FormValuta
 {
     public partial class FrmValutaPrikaz : Form
     {
-        List<Valuta> valute = new List<Valuta>();
+        BindingList<Valuta> valute;
         public FrmValutaPrikaz()
         {
             InitializeComponent();
@@ -23,14 +23,16 @@ namespace BazePodataka.Forme.FormValuta
         }
         private void PripremiFormu()
         {
-            valute = KontrolerValuta.Instance.Select(new Valuta());
-            if (valute is null) MessageBox.Show("Sistem ne moze da ucita listu");
-            dgvPrikaz.DataSource = valute;
+            List<Valuta> lista = KontrolerValuta.Instance.Select(new Valuta());
+            valute = new BindingList<Valuta>(lista);
+            if (lista is null) MessageBox.Show("Sistem ne moze da ucita listu");
+            dgvPrikaz.DataSource = lista;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            FrmValutaDodaj form = new FrmValutaDodaj(Operacija.Add, null);
+            Valuta v = new Valuta() { ValutaId = valute.Max(m => m.ValutaId) + 1 };
+            FrmValutaDodaj form = new FrmValutaDodaj(Operacija.Add, v);
             form.ShowDialog();
         }
 
@@ -46,7 +48,14 @@ namespace BazePodataka.Forme.FormValuta
         {
             Valuta v = SelectValuta();
             if (v is null) return;
-            bool znak = KontrolerValuta.Instance.Delete(v);
+            if (KontrolerValuta.Instance.Delete(v))
+            {
+                MessageBox.Show("Uspesno!");
+                valute.Remove(v);
+                dgvPrikaz.DataSource = valute;
+                return;
+            }
+            MessageBox.Show("Neuspesno!");
         }
 
         private Valuta SelectValuta()
@@ -57,7 +66,7 @@ namespace BazePodataka.Forme.FormValuta
                 valuta = (Valuta)dgvPrikaz.SelectedRows[0].DataBoundItem;
                 return valuta;
             }
-            catch (Exception ef)
+            catch (Exception )
             {
                 MessageBox.Show("Niste selektovali");
                 return null;

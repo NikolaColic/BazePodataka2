@@ -20,9 +20,9 @@ namespace BazePodataka.Forme.FormeOtpremnica
         {
             InitializeComponent();
             PripremiFormu();
+            this.otpremnica = otpremnica;
             if (operacija == Operacija.Update)
             {
-                this.otpremnica = otpremnica;
                 ButtonUpdate();
                 PopuniVrednosti(otpremnica);
             }
@@ -62,12 +62,41 @@ namespace BazePodataka.Forme.FormeOtpremnica
 
         private void btnIzmeni_Click(object sender, EventArgs e)
         {
-            bool znak = KontrolerOtpremnica.Instance.Update(new Otpremnica());
+            Otpremnica o = KreirajOtpremnicu();
+            if (o is null) return;
+            if (KontrolerOtpremnica.Instance.Update(o)) MessageBox.Show("Uspesno!");
+            else MessageBox.Show("Neuspesno!");
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            bool znak = KontrolerOtpremnica.Instance.Insert(new Otpremnica());
+            Otpremnica o = KreirajOtpremnicu();
+            if (o is null) return;
+            if (KontrolerOtpremnica.Instance.Insert(o)) MessageBox.Show("Uspesno!");
+            else MessageBox.Show("Neuspesno!");
+        }
+
+        private Otpremnica KreirajOtpremnicu()
+        {
+            try
+            {
+                Otpremnica o = new Otpremnica()
+                {
+                    SifraOtpremnice = otpremnica.SifraOtpremnice,
+                    DatumIzdavanja = Convert.ToDateTime(txtDatumIzdavanja.Text),
+                    DatumPrometa = Convert.ToDateTime(txtDatumPrometa.Text),
+                    Napomena = txtNapomena.Text,
+                    PreostaloUplata = Convert.ToDouble(txtPreostalo.Text),
+                    UplaceniAvansi = Convert.ToDouble(txtAvansi.Text),
+                    Valuta = (Valuta)cmbValuta.SelectedItem
+                };
+                return o;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Pogresan unos");
+                return null;
+            }
         }
     }
 }
