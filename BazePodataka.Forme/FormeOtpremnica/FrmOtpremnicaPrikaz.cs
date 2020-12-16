@@ -75,7 +75,7 @@ namespace BazePodataka.Forme.FormeOtpremnica
                 otpremnica = (Otpremnica)dgvPrikaz.SelectedRows[0].DataBoundItem;
                 return otpremnica;
             }
-            catch (Exception ef)
+            catch (Exception )
             {
                 MessageBox.Show("Niste selektovali");
                 return null;

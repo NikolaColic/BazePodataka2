@@ -72,5 +72,11 @@ namespace BazePodataka.Forme.FormeGlavna
             FrmValutaPrikaz forma = new FrmValutaPrikaz();
             forma.ShowDialog();
         }
+
+        private void komitentPogledToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmKomitentPogledPrikaz forma = new FrmKomitentPogledPrikaz();
+            forma.ShowDialog();
+        }
     }
 }

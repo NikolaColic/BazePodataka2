@@ -66,7 +66,7 @@ namespace BazePodataka.Forme.FormeKalkulacija
                 kalkulacija = (Kalkulacija)dgvPrikazKafa.SelectedRows[0].DataBoundItem;
                 return kalkulacija;
             }
-            catch (Exception ef)
+            catch (Exception )
             {
                 MessageBox.Show("Niste selektovali");
                 return null;

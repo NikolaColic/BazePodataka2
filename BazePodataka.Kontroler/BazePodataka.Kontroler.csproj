@@ -45,6 +45,7 @@
     <Compile Include="Kontroleri\KontrolerKomitent.cs" />
     <Compile Include="Kontroleri\KontrolerKafa.cs" />
     <Compile Include="Kontroleri\KontrolerKalkulacija.cs" />
+    <Compile Include="Kontroleri\KontrolerKomitentPogled.cs" />
     <Compile Include="Kontroleri\KontrolerOtpremnica.cs" />
     <Compile Include="Kontroleri\KontrolerProfaktura.cs" />
     <Compile Include="Kontroleri\KontrolerTipKafe.cs" />

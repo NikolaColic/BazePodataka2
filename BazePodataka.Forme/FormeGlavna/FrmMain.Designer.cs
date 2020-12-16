@@ -39,6 +39,7 @@ namespace BazePodataka.Forme.FormeGlavna
             this.tipKafeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trebovanjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valutaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.komitentPogledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +64,8 @@ namespace BazePodataka.Forme.FormeGlavna
             this.profakturaToolStripMenuItem,
             this.tipKafeToolStripMenuItem,
             this.trebovanjeToolStripMenuItem,
-            this.valutaToolStripMenuItem});
+            this.valutaToolStripMenuItem,
+            this.komitentPogledToolStripMenuItem});
             this.glavnoToolStripMenuItem.Name = "glavnoToolStripMenuItem";
             this.glavnoToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.glavnoToolStripMenuItem.Text = "Glavno";
@@ -124,6 +126,13 @@ namespace BazePodataka.Forme.FormeGlavna
             this.valutaToolStripMenuItem.Text = "Valuta";
             this.valutaToolStripMenuItem.Click += new System.EventHandler(this.valutaToolStripMenuItem_Click);
             // 
+            // komitentPogledToolStripMenuItem
+            // 
+            this.komitentPogledToolStripMenuItem.Name = "komitentPogledToolStripMenuItem";
+            this.komitentPogledToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.komitentPogledToolStripMenuItem.Text = "KomitentPogled";
+            this.komitentPogledToolStripMenuItem.Click += new System.EventHandler(this.komitentPogledToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -152,5 +161,6 @@ namespace BazePodataka.Forme.FormeGlavna
         private System.Windows.Forms.ToolStripMenuItem tipKafeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trebovanjeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem valutaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem komitentPogledToolStripMenuItem;
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="DomenskeKlase\Kalkulacija.cs" />
     <Compile Include="DomenskeKlase\KalkulacijaKafa.cs" />
     <Compile Include="DomenskeKlase\Komitent.cs" />
+    <Compile Include="DomenskeKlase\KomitentPogled.cs" />
     <Compile Include="DomenskeKlase\Otpremnica.cs" />
     <Compile Include="DomenskeKlase\Profaktura.cs" />
     <Compile Include="DomenskeKlase\StavkaTrebovanja.cs" />

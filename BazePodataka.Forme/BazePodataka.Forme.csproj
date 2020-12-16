@@ -76,6 +76,18 @@
     <Compile Include="FormeKalkulacija\FrmKalkulacijaDodaj.Designer.cs">
       <DependentUpon>FrmKalkulacijaDodaj.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormeKomitentPogled\FrmKomitentPogledDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeKomitentPogled\FrmKomitentPogledDodaj.Designer.cs">
+      <DependentUpon>FrmKomitentPogledDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormeKomitentPogled\FrmKomitentPogledPrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormeKomitentPogled\FrmKomitentPogledPrikaz.Designer.cs">
+      <DependentUpon>FrmKomitentPogledPrikaz.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormeKomitent\FrmKomitentDodaj.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +176,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormeKalkulacija\FrmKalkulacijaDodaj.resx">
       <DependentUpon>FrmKalkulacijaDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeKomitentPogled\FrmKomitentPogledDodaj.resx">
+      <DependentUpon>FrmKomitentPogledDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormeKomitentPogled\FrmKomitentPogledPrikaz.resx">
+      <DependentUpon>FrmKomitentPogledPrikaz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormeKomitent\FrmKomitentDodaj.resx">
       <DependentUpon>FrmKomitentDodaj.cs</DependentUpon>
