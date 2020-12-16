@@ -123,5 +123,114 @@ namespace BazePodataka.BrokerBaze
                 connection.Close();
             }
         }
+
+        public bool InsertSlozen(Trebovanje trebovanje)
+        {
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.Transaction = transaction;
+                command.CommandText = $"insert into {trebovanje.Table()} values ({trebovanje.Insert()})";
+                if (command.ExecuteNonQuery() == 0) throw new Exception();
+                foreach(var st in trebovanje.ListaStavki)
+                {
+                    st.Trebovanje.TrebovanjeId = trebovanje.TrebovanjeId;
+                    command.CommandText = $"insert into {st.Table()} values ({st.Insert()})";
+                    if (command.ExecuteNonQuery() == 0) throw new Exception();
+
+                }
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public bool UpdateSlozen(Trebovanje objekat, List<StavkaTrebovanja> stare)
+        {
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.Transaction = transaction;
+                
+                foreach(var stavka in objekat.ListaStavki)
+                {
+                    if(stare.SingleOrDefault((st)=> st.RbrStavke == stavka.RbrStavke) is null)
+                    {
+                        stavka.Trebovanje.TrebovanjeId = objekat.TrebovanjeId;
+                        command.CommandText = $"insert into {stavka.Table()} values ({stavka.Insert()})";
+                        if (command.ExecuteNonQuery() == 0) throw new Exception();
+
+                    }
+                }
+                foreach(var staraStavka in stare)
+                {
+                    if(objekat.ListaStavki.SingleOrDefault((st)=> st.RbrStavke == staraStavka.RbrStavke) is null)
+                    {
+                        command.CommandText = $"delete from {staraStavka.Table()} {staraStavka.Where()}";
+                        if (command.ExecuteNonQuery() == 0) throw new Exception();
+                    }
+                }
+                command.CommandText = $"update {objekat.Table()} set {objekat.Update()}  {objekat.Where()}";
+                if (command.ExecuteNonQuery() == 0) throw new Exception();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public bool DeleteSlozen(Trebovanje trebovanje)
+        {
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.Transaction = transaction;
+                foreach (var st in trebovanje.ListaStavki)
+                {
+                    st.Trebovanje.TrebovanjeId = trebovanje.TrebovanjeId;
+                    command.CommandText = $"delete from {st.Table()} {st.Where()}";
+                    if (command.ExecuteNonQuery() == 0) throw new Exception();
+
+                }
+                command.CommandText = $"delete from {trebovanje.Table()} {trebovanje.Where()}";
+                if (command.ExecuteNonQuery() == 0) throw new Exception();
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception e)
+            {
+                transaction.Rollback();
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

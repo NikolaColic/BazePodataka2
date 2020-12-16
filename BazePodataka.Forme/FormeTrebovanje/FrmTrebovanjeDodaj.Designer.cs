@@ -186,6 +186,7 @@ namespace BazePodataka.Forme.FormeTrebovanje
             this.btnObrisiStavku.TabIndex = 69;
             this.btnObrisiStavku.Text = "Obrisi";
             this.btnObrisiStavku.UseVisualStyleBackColor = true;
+            this.btnObrisiStavku.Click += new System.EventHandler(this.btnObrisiStavku_Click);
             // 
             // dgvStavke
             // 

@@ -15,7 +15,7 @@ namespace BazePodataka.Forme.FormeTrebovanje
 {
     public partial class FrmTrebovanjePrikaz : Form
     {
-        List<Trebovanje> trebovanja = new List<Trebovanje>();
+        BindingList<Trebovanje> trebovanja = new BindingList<Trebovanje>();
         public FrmTrebovanjePrikaz()
         {
             InitializeComponent();
@@ -23,14 +23,18 @@ namespace BazePodataka.Forme.FormeTrebovanje
         }
         private void PripremiFormu()
         {
-            trebovanja = KontrolerTrebovanje.Instance.Select(new Trebovanje());
-            if (trebovanja is null) MessageBox.Show("Sistem ne moze da ucita listu");
-            dgvPrikaz.DataSource = trebovanja;
+            List<Trebovanje> lista = KontrolerTrebovanje.Instance.Select(new Trebovanje());
+            trebovanja = new BindingList<Trebovanje>(lista);
+            if (lista is null) MessageBox.Show("Sistem ne moze da ucita listu");
+            dgvPrikaz.DataSource = lista;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            FrmTrebovanjeDodaj form = new FrmTrebovanjeDodaj(Operacija.Add, null);
+            Trebovanje t = new Trebovanje();
+            t.ListaStavki = new List<StavkaTrebovanja>();
+            t.TrebovanjeId = trebovanja.Max(m => m.TrebovanjeId) + 1;
+            FrmTrebovanjeDodaj form = new FrmTrebovanjeDodaj(Operacija.Add, t);
             form.ShowDialog();
         }
 
@@ -46,7 +50,16 @@ namespace BazePodataka.Forme.FormeTrebovanje
         {
             Trebovanje t = SelectTrebovanje();
             if (t is null) return;
-            bool znak = KontrolerTrebovanje.Instance.Delete(t);
+            if (KontrolerTrebovanje.Instance.Delete(t))
+            {
+                MessageBox.Show("Uspesno!");
+                trebovanja.Remove(t);
+                dgvPrikaz.DataSource = trebovanja;
+            }
+            else
+            {
+                MessageBox.Show("Neuspesno!");
+            }
         }
         private Trebovanje SelectTrebovanje()
         {
@@ -56,7 +69,7 @@ namespace BazePodataka.Forme.FormeTrebovanje
                 trebovanje = (Trebovanje)dgvPrikaz.SelectedRows[0].DataBoundItem;
                 return trebovanje;
             }
-            catch (Exception ef)
+            catch (Exception)
             {
                 MessageBox.Show("Niste selektovali");
                 return null;

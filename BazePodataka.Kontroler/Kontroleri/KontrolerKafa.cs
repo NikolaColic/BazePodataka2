@@ -72,5 +72,17 @@ namespace BazePodataka.Kontroler.Kontroleri
                 return null;
             }
         }
+        public List<KalkulacijaKafa> SelectKalkulacija(KalkulacijaKafa kafa)
+        {
+            try
+            {
+                var rezultat = _broker.Select(kafa).OfType<KalkulacijaKafa>().ToList();
+                return rezultat;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

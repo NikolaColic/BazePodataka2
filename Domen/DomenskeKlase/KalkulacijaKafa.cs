@@ -18,7 +18,27 @@ namespace Domen.DomenskeKlase
 
         public List<IOpstiDomenskiObjekat> GetReaderResult(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+
+            List<IOpstiDomenskiObjekat> lista = new List<IOpstiDomenskiObjekat>();
+
+            while (reader.Read())
+            {
+                KalkulacijaKafa kk = new KalkulacijaKafa();
+                Kafa k = new Kafa();
+                k.KafaId = Convert.ToInt32(reader[0]);
+                kk.NazivKafe = reader["nazivKafe"].ToString();
+                kk.Kafa = k;
+                kk.DatumOd = Convert.ToDateTime(reader["datumOd"]);
+                kk.DatumDo = Convert.ToDateTime(reader["datumDo"]);
+                Kalkulacija ka = new Kalkulacija();
+                ka.SifraKalkulacije = Convert.ToInt32(reader[1]);
+                ka.ProdajnaCena = Convert.ToDouble(reader["prodajnaCena"]);
+                kk.Kalkulacija = ka;
+                lista.Add(kk);
+            }
+            
+            reader.Close();
+            return lista;
         }
 
         public string Insert()
@@ -28,7 +48,7 @@ namespace Domen.DomenskeKlase
 
         public string Join()
         {
-            return "join Kafa k on (kk.kafaId = k.kafaId) join Kalkulacija on (ka.sifraKalkulacije = kk.sifraKalkulacije)";
+            return "join Kafa k on (kk.kafaId = k.kafaId) join Kalkulacija ka on (ka.sifraKalkulacije = kk.sifraKalkulacije)";
         }
 
         public string Table()

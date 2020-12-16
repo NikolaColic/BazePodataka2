@@ -46,7 +46,7 @@ namespace Domen.DomenskeKlase
 
         public string Insert()
         {
-            return $"'{Datum}',{Komitent.KomitentId},{Ukupno}";
+            return $"'{TrebovanjeId}','{Datum}',{Komitent.KomitentId},{Ukupno}";
         }
 
         public string Join()
@@ -71,7 +71,7 @@ namespace Domen.DomenskeKlase
 
         public string Update()
         {
-            return $"datum = '{Datum}',komitentId = {Komitent.KomitentId},Ukupno = {Ukupno}";
+            return $"datum = '{Datum}',komitentId = {Komitent.KomitentId}";
 
         }
 

@@ -28,7 +28,7 @@ namespace BazePodataka.Kontroler.Kontroleri
         {
             try
             {
-                var rezultat = _broker.Insert(trebovanje);
+                var rezultat = _broker.InsertSlozen(trebovanje);
                 return rezultat;
             }
             catch (Exception)
@@ -36,11 +36,11 @@ namespace BazePodataka.Kontroler.Kontroleri
                 return false;
             }
         }
-        public bool Update(Trebovanje trebovanje)
+        public bool Update(Trebovanje trebovanje, List<StavkaTrebovanja> stare)
         {
             try
             {
-                var rezultat = _broker.Update(trebovanje);
+                var rezultat = _broker.UpdateSlozen(trebovanje,stare);
                 return rezultat;
             }
             catch (Exception)
@@ -52,7 +52,7 @@ namespace BazePodataka.Kontroler.Kontroleri
         {
             try
             {
-                var rezultat = _broker.Insert(trebovanje);
+                var rezultat = _broker.DeleteSlozen(trebovanje);
                 return rezultat;
             }
             catch (Exception)
@@ -65,7 +65,26 @@ namespace BazePodataka.Kontroler.Kontroleri
             try
             {
                 var rezultat = _broker.Select(trebovanje).OfType<Trebovanje>().ToList();
+
+                var stavke = _broker.Select(new StavkaTrebovanja()).OfType<StavkaTrebovanja>().ToList();
+                foreach(var jedno in rezultat)
+                {
+                    jedno.ListaStavki = stavke.Where((s) => s.Trebovanje.TrebovanjeId == jedno.TrebovanjeId).ToList();
+                }
                 return rezultat;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public List<StavkaTrebovanja> SelectStavke(StavkaTrebovanja trebovanje)
+        {
+            try
+            {
+
+                var stavke = _broker.Select(trebovanje).OfType<StavkaTrebovanja>().ToList();
+                return stavke;
             }
             catch (Exception)
             {
