@@ -57,7 +57,7 @@ namespace BazePodataka.Forme.FormeKafa
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(146, 157);
+            this.btnDodaj.Location = new System.Drawing.Point(146, 156);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(89, 33);
             this.btnDodaj.TabIndex = 2;
@@ -100,7 +100,7 @@ namespace BazePodataka.Forme.FormeKafa
             // 
             // btnIzmeni
             // 
-            this.btnIzmeni.Location = new System.Drawing.Point(146, 157);
+            this.btnIzmeni.Location = new System.Drawing.Point(146, 156);
             this.btnIzmeni.Name = "btnIzmeni";
             this.btnIzmeni.Size = new System.Drawing.Size(89, 33);
             this.btnIzmeni.TabIndex = 7;
@@ -113,7 +113,7 @@ namespace BazePodataka.Forme.FormeKafa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 212);
+            this.ClientSize = new System.Drawing.Size(298, 219);
             this.Controls.Add(this.btnIzmeni);
             this.Controls.Add(this.cmbTipKafe);
             this.Controls.Add(this.label3);

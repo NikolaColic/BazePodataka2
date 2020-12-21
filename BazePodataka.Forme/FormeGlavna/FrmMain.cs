@@ -5,6 +5,7 @@ using BazePodataka.Forme.FormeOtpremnica;
 using BazePodataka.Forme.FormeProfaktura;
 using BazePodataka.Forme.FormeTipKafe;
 using BazePodataka.Forme.FormeTrebovanje;
+using BazePodataka.Forme.FormKalkulacijaKafa;
 using BazePodataka.Forme.FormValuta;
 using System;
 using System.Collections.Generic;
@@ -76,6 +77,12 @@ namespace BazePodataka.Forme.FormeGlavna
         private void komitentPogledToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmKomitentPogledPrikaz forma = new FrmKomitentPogledPrikaz();
+            forma.ShowDialog();
+        }
+
+        private void kalkulacijaKafaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmKalkulacijaKafaPrikaz forma = new FrmKalkulacijaKafaPrikaz();
             forma.ShowDialog();
         }
     }

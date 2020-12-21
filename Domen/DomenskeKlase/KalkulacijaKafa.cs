@@ -27,9 +27,17 @@ namespace Domen.DomenskeKlase
                 Kafa k = new Kafa();
                 k.KafaId = Convert.ToInt32(reader[0]);
                 kk.NazivKafe = reader["nazivKafe"].ToString();
+                k.NazivKafe = kk.NazivKafe;
                 kk.Kafa = k;
                 kk.DatumOd = Convert.ToDateTime(reader["datumOd"]);
-                kk.DatumDo = Convert.ToDateTime(reader["datumDo"]);
+                try
+                {
+                    kk.DatumDo = Convert.ToDateTime(reader["datumDo"]);
+                }
+                catch (Exception)
+                {
+                    kk.DatumDo = new DateTime(1000,1,1);
+                }
                 Kalkulacija ka = new Kalkulacija();
                 ka.SifraKalkulacije = Convert.ToInt32(reader[1]);
                 ka.ProdajnaCena = Convert.ToDouble(reader["prodajnaCena"]);
@@ -43,7 +51,7 @@ namespace Domen.DomenskeKlase
 
         public string Insert()
         {
-            return $"{Kafa.KafaId},{Kalkulacija.SifraKalkulacije},'{NazivKafe}','{DatumOd}','{DatumDo}'";
+            return $"{Kafa.KafaId},{Kalkulacija.SifraKalkulacije},'{NazivKafe}','{DatumOd}',NULL";
         }
 
         public string Join()
@@ -69,7 +77,7 @@ namespace Domen.DomenskeKlase
 
         public string Where()
         {
-            return $"kafaId = {Kafa.KafaId} and sifraKalkulacije = {Kalkulacija.SifraKalkulacije}";
+            return $"where kafaId = {Kafa.KafaId} and sifraKalkulacije = {Kalkulacija.SifraKalkulacije} and datumOd = '{DatumOd}'";
         }
     }
 }

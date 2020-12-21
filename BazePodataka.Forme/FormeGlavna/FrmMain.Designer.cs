@@ -40,6 +40,7 @@ namespace BazePodataka.Forme.FormeGlavna
             this.trebovanjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valutaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.komitentPogledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kalkulacijaKafaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +66,8 @@ namespace BazePodataka.Forme.FormeGlavna
             this.tipKafeToolStripMenuItem,
             this.trebovanjeToolStripMenuItem,
             this.valutaToolStripMenuItem,
-            this.komitentPogledToolStripMenuItem});
+            this.komitentPogledToolStripMenuItem,
+            this.kalkulacijaKafaToolStripMenuItem});
             this.glavnoToolStripMenuItem.Name = "glavnoToolStripMenuItem";
             this.glavnoToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.glavnoToolStripMenuItem.Text = "Glavno";
@@ -133,6 +135,13 @@ namespace BazePodataka.Forme.FormeGlavna
             this.komitentPogledToolStripMenuItem.Text = "KomitentPogled";
             this.komitentPogledToolStripMenuItem.Click += new System.EventHandler(this.komitentPogledToolStripMenuItem_Click);
             // 
+            // kalkulacijaKafaToolStripMenuItem
+            // 
+            this.kalkulacijaKafaToolStripMenuItem.Name = "kalkulacijaKafaToolStripMenuItem";
+            this.kalkulacijaKafaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.kalkulacijaKafaToolStripMenuItem.Text = "Kalkulacija kafa";
+            this.kalkulacijaKafaToolStripMenuItem.Click += new System.EventHandler(this.kalkulacijaKafaToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -162,5 +171,6 @@ namespace BazePodataka.Forme.FormeGlavna
         private System.Windows.Forms.ToolStripMenuItem trebovanjeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem valutaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem komitentPogledToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kalkulacijaKafaToolStripMenuItem;
     }
 }

@@ -37,6 +37,7 @@ namespace BazePodataka.Forme.FormeKafa
         {
             List<TipKafe> tipovi = KontrolerTipKafe.Instance.Select(new TipKafe());
             cmbTipKafe.DataSource = tipovi;
+            List<Kalkulacija> kalkulacija = KontrolerKalkulacija.Instance.Select(new Kalkulacija());
         }
 
         private void PopuniVrednosti(Kafa kafa)
@@ -69,6 +70,7 @@ namespace BazePodataka.Forme.FormeKafa
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
+
             Kafa k = KreirajObjekat();
             if (k is null) return;
             if (KontrolerKafa.Instance.Insert(k)) MessageBox.Show("Uspesan unos!");

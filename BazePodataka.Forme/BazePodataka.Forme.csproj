@@ -148,6 +148,18 @@
     <Compile Include="FormeTrebovanje\FrmTrebovanjePrikaz.Designer.cs">
       <DependentUpon>FrmTrebovanjePrikaz.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormKalkulacijaKafa\FrmKalkulacijaKafaDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKalkulacijaKafa\FrmKalkulacijaKafaDodaj.Designer.cs">
+      <DependentUpon>FrmKalkulacijaKafaDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKalkulacijaKafa\FrmKalkulacijaKafaPrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKalkulacijaKafa\FrmKalkulacijaKafaPrikaz.Designer.cs">
+      <DependentUpon>FrmKalkulacijaKafaPrikaz.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormValuta\FrmValutaDodaj.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +224,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormeTrebovanje\FrmTrebovanjePrikaz.resx">
       <DependentUpon>FrmTrebovanjePrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKalkulacijaKafa\FrmKalkulacijaKafaDodaj.resx">
+      <DependentUpon>FrmKalkulacijaKafaDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKalkulacijaKafa\FrmKalkulacijaKafaPrikaz.resx">
+      <DependentUpon>FrmKalkulacijaKafaPrikaz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormValuta\FrmValutaDodaj.resx">
       <DependentUpon>FrmValutaDodaj.cs</DependentUpon>

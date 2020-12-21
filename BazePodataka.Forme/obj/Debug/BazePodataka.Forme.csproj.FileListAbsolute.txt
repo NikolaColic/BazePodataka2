@@ -33,3 +33,5 @@ C:\Users\PC\source\repos\BazePodataka\BazePodataka.Forme\bin\Debug\BazePodataka.
 C:\Users\PC\source\repos\BazePodataka\BazePodataka.Forme\bin\Debug\BazePodataka.BrokerBaze.pdb
 C:\Users\PC\source\repos\BazePodataka\BazePodataka.Forme\obj\Debug\BazePodataka.Forme.FormeKomitent.FrmKomitentPogledDodaj.resources
 C:\Users\PC\source\repos\BazePodataka\BazePodataka.Forme\obj\Debug\BazePodataka.Forme.FormeKomitent.FrmKomitentPogledPrikaz.resources
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Forme\obj\Debug\BazePodataka.Forme.FormKalkulacijaKafa.FrmKalkulacijaKafaDodaj.resources
+C:\Users\PC\source\repos\BazePodataka\BazePodataka.Forme\obj\Debug\BazePodataka.Forme.FormKalkulacijaKafa.FrmKalkulacijaKafaPrikaz.resources
